@@ -175,8 +175,8 @@ textarea{{font:inherit;font-size:14px;width:100%;min-height:64px;background:#101
 
 <h2>Lo que vas a escuchar</h2>
 <div class="grid2">
-  <div class="card"><h4>Voz Jonas sobre tu toma completa (42 s)</h4><audio controls preload="metadata" src="voz_jonas_42s.m4a"></audio><p class="cap">Speech-to-speech: conserva tus tiempos, pausas y énfasis; cambia el timbre. Es la voz que mueve el lipsync.</p></div>
-  <div class="card"><h4>Música de terror v1 (60 s, ElevenLabs Music)</h4><audio controls preload="metadata" src="musica_horror_v1.m4a"></audio><p class="cap">Drone grave + reloj + latido, cuerdas disonantes, se vacía antes del apagón y resuelve en un pad cálido al final. Sin ducking: cama fija y sube al terminar la voz (regla de Castelo).</p></div>
+  <div class="card"><h4>Voz Jonas sobre tu toma completa (42 s)</h4><audio controls preload="metadata" src="voz_jonas_42s.mp3"></audio><p class="cap">Speech-to-speech: conserva tus tiempos, pausas y énfasis; cambia el timbre. Es la voz que mueve el lipsync.</p></div>
+  <div class="card"><h4>Música de terror v1 (60 s, ElevenLabs Music)</h4><audio controls preload="metadata" src="musica_horror_v1.mp3"></audio><p class="cap">Drone grave + reloj + latido, cuerdas disonantes, se vacía antes del apagón y resuelve en un pad cálido al final. Sin ducking: cama fija y sube al terminar la voz (regla de Castelo).</p></div>
   <div class="card"><h4>Referencia de Rudy (la que vamos a superar)</h4><video controls playsinline preload="metadata" src="referencia_rudy_540.mp4"></video><p class="cap">Genjutsu 720p, voz incorrecta, sin intro ni outro, sin música. Sirve de guía de encuadres y luz.</p></div>
   <div class="card"><h4>Diseño de sonido</h4><ul>
     <li>Cerillo (intro) → clic de linterna ON (clip 1) → tic de reloj (clip 6) → clic OFF + silencio (clip 7) → luces del showroom (8a).</li>
