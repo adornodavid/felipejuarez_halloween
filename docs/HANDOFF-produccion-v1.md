@@ -14,10 +14,10 @@ Lección: Nano Banana cambia la cara 1 de cada 3 veces aunque la ficha esté en 
 | clip | image media_id | driver media_id | job |
 |---|---|---|---|
 | c1 | c0199d7f-091d-430b-9f76-d0dd515651b8 | f0020365-aa87-49a6-9075-a83d2627d96c | ✅ e02d4c8c-491d-4c2d-8a32-0529f3e1a41b → `build/test/clip1_kling_1080p.mp4` |
-| c2 | d713ed32-f869-40cd-85c9-bf2b0ece71e1 | pad: bb3d7ea5-dcd1-4c0e-b0d6-e246196476fc (confirmar) | fc07f7d8… FALLÓ (driver 1.96 s) → relanzar con pad |
+| c2 | d713ed32-f869-40cd-85c9-bf2b0ece71e1 | pad: bb3d7ea5-dcd1-4c0e-b0d6-e246196476fc (confirmar) | ✅ relanzado con pad: **7b579e4d-9079-415e-9e60-0b6524ee5868** (en curso); recortar resultado a 1.96 s |
 | c3a | fb39f270-1757-42db-94b8-0ed0f18cce96 | cdd8edd3-c525-444a-bd67-9982d3be3061 | c7611c1f-2039-45ca-9615-4577352a187c (en curso) |
 | c3b | c143a015-ee53-4de5-a0f3-2dea3af0f893 | cfb4648b-4220-4cb0-aa0f-b798d81bbe1c | 582fa07d-ee2c-44ea-8c60-2194351d143d (en curso) |
-| c4 | 7ad7488a-5cee-45de-b5a3-43ff2b81e64a | pad: 95ac932c-1262-45d3-b96c-d66e07b68289 (confirmar) | 3bbd5179… FALLÓ (driver 2.5 s) → relanzar con pad |
+| c4 | 7ad7488a-5cee-45de-b5a3-43ff2b81e64a | pad: 95ac932c-1262-45d3-b96c-d66e07b68289 (confirmar) | ✅ relanzado con pad: **1574879a-cbef-48af-bc6d-5085d5132cca** (en curso); recortar resultado a 2.5 s |
 | c5 | 048f690f-785d-46d2-934a-6609f04718a6 | 8c305344-c075-469d-87b0-9c3ece239ff6 | 58f18862-ded7-40d8-930b-96136fe4faf2 (en curso) |
 | c7 | c89c5a9f-772c-49d5-b0eb-d1e2b9300f84 | 91c5af3b-7d76-47f0-8e23-7ba458c11227 | 64c5c1f2-4b86-4c53-b3e8-2610a4362ec3 (en curso) |
 | c8a | 0d4523f0-68c4-4d7c-8fe1-96cf5fa6ef2b | a5032d12-4eb9-484b-976f-72dbdcead4c5 | 2b0b9288-eb75-4cb8-a0a3-7888aecb2ded (en curso) |
