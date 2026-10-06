@@ -1,0 +1,6 @@
+# medios pesados viven en Drive (ids en tools_download_drive.py) y en media/ local
+media/
+build/
+*.mov
+*.MOV
+.DS_Store
