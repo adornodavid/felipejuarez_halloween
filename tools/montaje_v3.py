@@ -17,7 +17,9 @@ parts=[("intro","build/v2/intro.mp4",None,6.0),
 def dur(p): return float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",p],capture_output=True,text=True).stdout.strip())
 t=0; tl=[]; vf=[]; af=[]; inputs=[]
 for i,(n,f,orig,d) in enumerate(parts):
-    D=d if d else dur(f); inputs+=["-i",f]
+    D=d if d else dur(f)
+    if n=="c8": D-=IN8
+    inputs+=["-i",f]
     seek=f"trim=start={IN8},setpts=PTS-STARTPTS," if n=="c8" else ""
     vf.append(f"[{i}:v]{seek}scale=1080:1920,fps=30,setsar=1,trim=duration={D:.4f},setpts=PTS-STARTPTS[v{i}]")
     tl.append({"name":n,"start":round(t,4),"dur":round(D,4),"orig":orig,"offset":(round(t-orig,4) if orig is not None else None)}); t+=D
