@@ -16,10 +16,10 @@ INTRO_LEN = 6.0
 CLIPS = [("c1", "build/clips/c1_felipe_encendido.mp4", -0.06, 0),
          ("c2", "build/clips/c2_felipe.mp4", 6.54, 0), ("c3a", "build/clips/c3a_felipe.mp4", 8.46, 0),
          ("c3b", "build/clips/c3b_felipe.mp4", 13.0, 0), ("c4", "build/clips/c4_felipe.mp4", 19.79, 0),
-         ("c5", "build/clips/c5_felipe.mp4", 22.29, 0), ("c6", "build/clips/c6_mano_mudo.mp4", 26.54, 0),
+         ("c5", "build/clips/c5_felipe.mp4", 22.29, 0), ("c6", "build/clips/c6_mano_linterna.mp4", 26.54, 0),
          ("c7", "build/clips/c7_felipe_v2.mp4", 28.08, 0),
          ("APAGON", None, None, 0),
-         ("c8a", "build/clips/c8a2_felipe.mp4", 32.58, 0.6), ("c8b", "build/clips/c8b2_felipe.mp4", 34.0, 0)]
+         ("c8a", "build/clips/c8a2_felipe.mp4", 32.58, 0.6), ("c8b", "build/clips/c8b2_felipe.mp4", 34.9, 0)]
 ROOM = "anoisesrc=color=pink:amplitude=0.0025:r=48000,aformat=channel_layouts=stereo"
 def black(sec, name):
     p = f"{OUT}/{name}.mp4"; run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={sec}", "-f", "lavfi", "-i", ROOM, "-t", str(sec), "-c:v", "libx264", "-crf", "14", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", p]); return p

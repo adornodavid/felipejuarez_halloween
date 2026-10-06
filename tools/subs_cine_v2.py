@@ -83,10 +83,33 @@ for s in range(1, STEPS + 1):
     p = f"{B}/big_{s:02d}.png"; im.save(p)
     ta = t_start + (t_peak - t_start) * (s - 1) / STEPS; tb = t_start + (t_peak - t_start) * s / STEPS if s < STEPS else t_end
     ov.append((p, bx - pad, BIG_Y - pad, ta, tb))
-fc = "[0:v]null[base]"; cur = "base"; inputs = []
-for n, (p, x, y, a, b) in enumerate(ov):
-    inputs += ["-loop", "1", "-i", os.path.abspath(p)]
-    fc += f";[{cur}][{n+1}:v]overlay={int(x)}:{int(y)}:enable='between(t,{a:.3f},{b:.3f})':format=auto[v{n}]"; cur = f"v{n}"
-fc += f";[{cur}]format=yuv420p[v]"
-subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", src] + inputs + ["-filter_complex", fc, "-map", "[v]", "-map", "0:a", "-t", f"{L:.3f}", "-c:v", "libx264", "-crf", "15", "-r", str(FPS), "-c:a", "copy", out], check=True)
-print("ok", out, len(ov), "overlays")
+# ---- render rápido: composición numpy cuadro a cuadro (el grafo de ffmpeg con ~100 overlays tardaba >10 min)
+pr = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", src], capture_output=True, text=True).stdout.strip().split(",")
+SW, SH = int(pr[0]), int(pr[1])
+cache = {}
+def load(p):
+    if p not in cache:
+        im = np.asarray(Image.open(p).convert("RGBA")).astype(np.float32); cache[p] = (im[..., :3], im[..., 3:4] / 255.0)
+    return cache[p]
+ov.sort(key=lambda o: o[3])
+dec = subprocess.Popen(["ffmpeg", "-v", "error", "-i", src, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{SW}x{SH}", "-r", str(FPS), "-i", "-", "-i", src, "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-crf", "15", "-pix_fmt", "yuv420p", "-c:a", "copy", "-shortest", out], stdin=subprocess.PIPE)
+n = 0
+while True:
+    buf = dec.stdout.read(SW * SH * 3)
+    if len(buf) < SW * SH * 3: break
+    t = n / FPS; act = [o for o in ov if o[3] <= t < o[4]]
+    if act:
+        fr = np.frombuffer(buf, np.uint8).reshape(SH, SW, 3).astype(np.float32)
+        for p, x, y, a, b in act:
+            rgb, al = load(p); h, w = al.shape[:2]; x, y = int(x), int(y)
+            x0, y0 = max(x, 0), max(y, 0); x1, y1 = min(x + w, SW), min(y + h, SH)
+            if x1 <= x0 or y1 <= y0: continue
+            sub = fr[y0:y1, x0:x1]; A = al[y0 - y:y1 - y, x0 - x:x1 - x]; C = rgb[y0 - y:y1 - y, x0 - x:x1 - x]
+            fr[y0:y1, x0:x1] = C * A + sub * (1 - A)
+        enc.stdin.write(fr.clip(0, 255).astype(np.uint8).tobytes())
+    else:
+        enc.stdin.write(buf)
+    n += 1
+enc.stdin.close(); enc.wait()
+print("ok", out, len(ov), "overlays", n, "cuadros")

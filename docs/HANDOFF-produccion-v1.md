@@ -57,3 +57,8 @@ Hecho:
 - Voces: `build/test/voz_c8b2.wav` (34.00–42.54 + room tone; Magnific `yieasg8PW9`) · `voz_c8a2.wav` solo room tone. Voz v3 verificada alineada con `david_words.json` (±0.02 s).
 - Montaje DEMO 2: `tools/montaje_v2.py media/05_intro/intro_le-temes-a-invertir_story.mp4` → `build/v2/` · subtítulos `tools/subs_cine_v2.py` (+ título grande terraregia.com que se completa con el gesto, pico en 41.8 s del crudo) · música `tools/musica_v1.py` (lee build/v1/timeline.json → copiar/apuntar a build/v2).
 Pendiente tras DEMO 2: luz de linterna en c6 (mano real está con luz de foro), SFX (clic/tic/luces), 4K crudos.
+- ✅ **DEMO 2 RENDERIZADO: `build/v2/DEMO2_FelipeJuarez_MiedoAInvertir.mp4` (53.0 s, −16.7 LUFS).** Lipsync 2.0 en todo (David eligió Lipsync 2.0 sobre Veed Sync en el A/B de c7).
+  Toma 8 final: c8a2 = Kling std de `s_c8a2_b` + driver espejeado, primeros 2.30 s (32.58–34.88), lipsync `3ztqHB0REY` · c8b2 = Kling v1 de `s_c8b2_a_medium` (b18994db) desde 0.9 s con ZOOM dinámico que cancela el zoom-out de Kling (`build/kling/c8b2_zoom_1080p.mp4`, 34.90–42.54), lipsync `yiefac2PW9` (caja 630,717,637). El Kling v2 con el still completo (c5fdf98d) INVENTÓ una lámpara colgante y plantas → descartado.
+  c6 = mano real con grade de linterna (`c6_mano_linterna.mp4`, máscara radial cálida ×numpy; el `blend` de ffmpeg con máscara RGB salía VERDE).
+  Render de subtítulos ahora por numpy (`subs_cine_v2.py`, 1.6 k cuadros en ~2 min; el grafo ffmpeg con ~100 overlays tardaba >10 min).
+  Cajas de cara en `build/crops/boxes.txt` (c8b2z, c8a2u). Pendiente: la linterna NO queda visible sobre la mesa en c8b (Kling la desaparece) → opción: componer la linterna real sobre la mesa en post.
