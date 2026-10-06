@@ -1,3 +1,5 @@
+> ⛔ **6-oct-2026: misión ABORTADA por David.** El video no se logró. Ver `docs/POSTMORTEM-2026-10-06-mision-abortada.md` antes de reintentar.
+
 # Felipe Juárez · Terra Regia «Miedo a invertir» (Halloween 2026)
 
 Repo de producción del video **Episodio 1 — «El que nunca se decidió a invertir»** (vertical 9:16, ≈55 s con intro y outro). Avatar IA **Felipe Juárez** sobre la actuación real de **David Adorno** en croma. Hereda la receta y los aprendizajes de **Regina Torres / Castelo** (repo `adornodavid/regina_torres_terraregia`, carpeta `videos-ia/`, skill `regina-video-ia`).

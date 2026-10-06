@@ -1,4 +1,4 @@
-# HANDOFF · producción Versión 1 (5-oct-2026 noche) — retomar con `FELIPE-JUAREZ-MIEDO-A-INVERTIR`
+# HANDOFF · producción — ⛔ MISIÓN ABORTADA 6-oct-2026 (ver docs/POSTMORTEM-2026-10-06-mision-abortada.md). Lo de abajo es historia del intento.
 
 Storyboard **aprobado 11/11** por David (artifact https://claude.ai/artifact/QNx8bXAQrH5gKK92bAgQfR). Nota única en clip 1: «el audio al principio se escucha un poco IA y entrecortado» → **causa:** `remove_background_noise=true` en el speech-to-speech recortaba ataques (huecos −50 dB entre palabras). **Fix hecho:** voz **v3** (`media/07_voz/voz_Jonas_sts_v3_42s.mp3`, sin supresión, stability 0.6 / similarity 0.85) + room tone rosa −50 dB mezclado por clip (`build/test/voz_c*.wav`). `build/test/clip1_felipe_con_encendido_v3.mp4` ya usa v3 (pendiente que David lo oiga).
 

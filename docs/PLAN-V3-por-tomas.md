@@ -36,3 +36,6 @@ Gate: prueba Genjutsu en c3a (job 837feea3). Si el swap respeta cara y manos →
 - Fix toma 8: driver COMPLETO `build/v3/c8_full_driver.mp4` (c8a+c8b, 10 s, media dc22c744) + still sentado showroom real `s_c8a2_b` (media 969d5ae4) → Kling MC 1080p. Luego identidad (Genjutsu character replace con ficha si deriva) + lipsync facecrop con voz 32.58–42.54.
 - c6 v3 = manos del AVATAR (Kling i2v job 77a7de30) → build/clips/c6_mano_v3_mudo.mp4 1.53 s. Preview 4-7 v3 regenerado con c4 v4 + c6 avatar + voz continua.
 - Toma 8 v4 (respeta el crudo): Kling MC driver completo → job b35c14ab ✅ (sentado → se levanta → cámara abre → CTA; la linterna desaparece de la mano al pararse) → Topaz 2160p job 1f637986 → `build/kling/c8_full_kling_4k.mp4` → `tools/zoom_path.py` push-in a plano medio (kf en build/v3/notas.txt) → `build/kling/c8_zoom_1080p.mp4` → Magnific `huUYTDtvqL` → Lipsync 2.0 cuadro completo con voz 32.58–42.58 `gOcCtLgSXO`. Montaje: apagón → insert mesa 1.4 s → c8 desde t=1.4 (`tools/montaje_v3.py`, voz continua por tramos).
+
+## ⛔ 6-oct ~18:00 — David aborta la misión
+«No lo has logrado. Documenta que no has podido y que no se ha logrado hacer. Después lo volvemos a intentar.» Postmortem en `docs/POSTMORTEM-2026-10-06-mision-abortada.md`.
